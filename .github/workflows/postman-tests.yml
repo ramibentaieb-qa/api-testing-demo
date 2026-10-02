@@ -14,6 +14,6 @@ jobs:
           curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
 
       - name: Run Postman collection
-        run: postman collection run Task Manager Collection Structure.postman_collection.json
+        run: postman collection run "Task Manager Collection Structure.postman_collection.json"
         env:
           POSTMAN_API_KEY: ${{ secrets.POSTMAN_API_KEY }}
