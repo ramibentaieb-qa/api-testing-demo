@@ -1,0 +1,19 @@
+name: Postman API Tests
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Postman CLI
+        run: |
+          curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
+
+      - name: Run Postman collection
+        run: postman collection run Task Manager Collection Structure.postman_collection.json
+        env:
+          POSTMAN_API_KEY: ${{ secrets.POSTMAN_API_KEY }}
